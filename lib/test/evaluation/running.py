@@ -14,14 +14,15 @@ def _save_tracker_output(seq: Sequence, tracker: Tracker, output: dict):
     if not os.path.exists(tracker.results_dir):
         print("create tracking result dir:", tracker.results_dir)
         os.makedirs(tracker.results_dir)
-    if seq.dataset in ['trackingnet', 'got10k']:
-        if not os.path.exists(os.path.join(tracker.results_dir, seq.dataset)):
-            os.makedirs(os.path.join(tracker.results_dir, seq.dataset))
+    # if seq.dataset in ['trackingnet', 'got10k']:
+    if not os.path.exists(os.path.join(tracker.results_dir, seq.dataset)):
+        os.makedirs(os.path.join(tracker.results_dir, seq.dataset))
     '''2021.1.5 create new folder for these two datasets'''
     if seq.dataset in ['trackingnet', 'got10k']:
         base_results_path = os.path.join(tracker.results_dir, seq.dataset, seq.name)
     else:
-        base_results_path = os.path.join(tracker.results_dir, seq.name)
+        # base_results_path = os.path.join(tracker.results_dir, seq.name)
+        base_results_path = os.path.join(tracker.results_dir, seq.dataset, seq.name)
 
     def save_bb(file, data):
         tracked_bb = np.array(data).astype(int)
@@ -175,7 +176,7 @@ def run_dataset(dataset, trackers, debug=False, threads=0, num_gpus=8):
     if mode == 'sequential':
         for seq in dataset:
             for tracker_info in trackers:
-                run_sequence(seq, tracker_info, debug=debug)
+                run_sequence(seq, tracker_info, debug=debug, num_gpu=num_gpus)
     elif mode == 'parallel':
         param_list = [(seq, tracker_info, debug, num_gpus) for seq, tracker_info in product(dataset, trackers)]
         with multiprocessing.Pool(processes=threads) as pool:

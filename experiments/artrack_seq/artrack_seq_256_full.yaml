@@ -40,7 +40,8 @@ MODEL:
   RANGE: 2
   PRENUM: 7
   PRETRAIN_FILE: "mae_pretrain_vit_base.pth"
-  PRETRAIN_PTH: ""
+#  PRETRAIN_PTH: "/home/kyle/PycharmProjects/ARTrack/output/test/networks/ARTrackSeq_ep0060.pth.tar"
+  PRETRAIN_PTH: "output/test/networks/ARTrackSeq_ep0060.pth.tar"
   EXTRA_MERGER: False
   RETURN_INTER: False
   BACKBONE:
