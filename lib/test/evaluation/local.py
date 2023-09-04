@@ -11,7 +11,7 @@ def local_env_settings():
     settings.got_packed_results_path = ''
     settings.got_reports_path = ''
     settings.itb_path = '/home/kyle/PycharmProjects/ARTrack/data/itb'
-    settings.lasot_extension_subset_path_path = '/home/kyle/PycharmProjects/ARTrack/data/lasot_extension_subset'
+    settings.lasot_extension_subset_path = '/home/kyle/PycharmProjects/ARTrack/data/lasot_extension_subset'
     settings.lasot_lmdb_path = '/home/kyle/PycharmProjects/ARTrack/data/lasot_lmdb'
     settings.lasot_path = '/home/kyle/PycharmProjects/ARTrack/data/lasot'
     settings.network_path = '/home/kyle/PycharmProjects/ARTrack/output/test/networks'    # Where tracking networks are stored.
