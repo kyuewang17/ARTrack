@@ -13,7 +13,7 @@ dependencies:
   - tabulate=0.8.9=pyhd8ed1ab_0
   - termcolor=1.1.0=py_2
   - yacs=0.1.8=pyhd8ed1ab_0
-  - ffmpeg=4.3=hf484d3e_0
+#  - ffmpeg=4.3=hf484d3e_0
 #  - pytorch=1.11.0=py3.9_cuda11.3_cudnn8.2.0_0
 #  - pytorch-mutex=1.0=cuda
 #  - torchvision=0.12.0=py39_cu113
