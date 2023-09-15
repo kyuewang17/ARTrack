@@ -82,7 +82,7 @@ class LTRSeqTrainer(BaseTrainer):
             with torch.no_grad():
                 explore_result = self.actor.explore(data)
             if explore_result == None:
-                print("this time i skip")
+                # print("this time i skip")
                 # self._update_stats(stats, batch_size, loader)
                 continue
             # get inputs
@@ -213,7 +213,10 @@ class LTRSeqTrainer(BaseTrainer):
         # calculate ETA after every epoch
         # epoch_time = self.prev_time - self.start_time
         # print("Epoch Time: " + str(datetime.timedelta(seconds=epoch_time)))
-        # print("Avg Data Time: %.5f" % (self.avg_date_time / self.num_frames * batch_size))
+        # try:
+        #     print("Avg Data Time: %.5f" % (self.avg_date_time / self.num_frames * batch_size))
+        # except:
+        #     print(123)
         # print("Avg GPU Trans Time: %.5f" % (self.avg_gpu_trans_time / self.num_frames * batch_size))
         # print("Avg Forward Time: %.5f" % (self.avg_forward_time / self.num_frames * batch_size))
 

@@ -482,12 +482,13 @@ class ARTrackSeqActor(BaseActor):
                 pred_bbox = outputs['pred_bboxes']
                 search_images_list.append(outputs['search_images'])
                 search_anno_list.append(outputs['gt_in_crop'])
-                if len(outputs['pre_seq']) != 8:
-                    print(outputs['pre_seq'])
-                    print(len(outputs['pre_seq']))
-                    print(idx)
-                    print(data['num_frames'])
-                    print(data['search_annos'])
+                # if len(outputs['pre_seq']) != 8:
+                if len(outputs['pre_seq']) != self.cfg.TRAIN.BATCH_SIZE:
+                    # print(outputs['pre_seq'])
+                    # print(len(outputs['pre_seq']))
+                    # print(idx)
+                    # print(data['num_frames'])
+                    # print(data['search_annos'])
                     return None
                 pre_seq_list.append(outputs['pre_seq'])
                 pred_bbox_corner = bbutils.batch_xywh2corner(pred_bbox)

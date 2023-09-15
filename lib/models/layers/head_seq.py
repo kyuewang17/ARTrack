@@ -870,8 +870,10 @@ class Pix2Track(nn.Module):
 
             seqs_input = real_seq.to(zx_feat.device).to(torch.int32)
 
+            # for 4 coordinates (xmin, ymin, xmax, ymax)
             for i in range(4):
                 tgt = self.word_embeddings(seqs_input).permute(1, 0, 2)
+                # 현재 trajectory embedding + spatio-temporal prompts
                 query_embed_ = self.position_embeddings.weight.unsqueeze(1)
                 prev_embed = self.prev_position_embeddings.weight.unsqueeze(1)
                 query_embed = torch.cat([prev_embed, query_embed_], dim=0)
