@@ -9,7 +9,8 @@ DATA:
     FACTOR: 4.0
     SCALE_JITTER: 0.25
     SIZE: 256
-    NUMBER: 36
+#    NUMBER: 36
+    NUMBER: 12
   STD:
   - 0.229
   - 0.224
