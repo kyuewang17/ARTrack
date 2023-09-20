@@ -890,6 +890,7 @@ class Pix2Track(nn.Module):
                 out_list.append(out.unsqueeze(0))
                 out = out.softmax(-1)
 
+                # Argmax Sampling for Testing
                 value, extra_seq = out.topk(dim=-1, k=1)[0], out.topk(dim=-1, k=1)[1]
                 seqs_input = torch.cat([seqs_input, extra_seq], dim=-1)
                 if i == 0:
