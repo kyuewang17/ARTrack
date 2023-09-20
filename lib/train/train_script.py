@@ -16,7 +16,7 @@ from .base_functions import *
 from lib.models.artrack import build_artrack
 from lib.models.artrack_seq import build_artrack_seq
 # forward propagation related
-from lib.train.actors import ARTrackActor, ARTrackSeqActor
+from lib.train.actors import ARTrackActor, ARTrackSeqActor, ARTrackppActor
 # for import modules
 import importlib
 
@@ -185,6 +185,11 @@ def run(settings):
         objective = {'giou': giou_loss, 'l1': l1_loss, 'focal': focal_loss}
         loss_weight = {'giou': cfg.TRAIN.GIOU_WEIGHT, 'l1': cfg.TRAIN.L1_WEIGHT, 'focal': 2.}
         actor = ARTrackSeqActor(net=net, objective=objective, loss_weight=loss_weight, settings=settings, cfg=cfg, bins=bins, search_size=search_size)
+    elif settings.script_name == "artrackpp":
+        focal_loss = FocalLoss()
+        objective = {'giou': giou_loss, 'l1': l1_loss, 'focal': focal_loss}
+        loss_weight = {'giou': cfg.TRAIN.GIOU_WEIGHT, 'l1': cfg.TRAIN.L1_WEIGHT, 'focal': 2.}
+        actor = ARTrackppActor(net=net, objective=objective, loss_weight=loss_weight, settings=settings, cfg=cfg, bins=bins, search_size=search_size)
     else:
         raise ValueError("illegal script name")
 

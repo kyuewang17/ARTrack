@@ -1,6 +1,6 @@
 import math
 
-from lib.models.artrack import build_artrack
+from lib.models.artrackpp import build_artrackpp
 from lib.test.tracker.basetracker import BaseTracker
 import torch
 
@@ -58,10 +58,10 @@ class RandomErasing(object):
         return img
 
 
-class ARTrack(BaseTracker):
+class ARTrackpp(BaseTracker):
     def __init__(self, params, dataset_name):
-        super(ARTrack, self).__init__(params)
-        network = build_artrack(params.cfg, training=False)
+        super(ARTrackpp, self).__init__(params)
+        network = build_artrackpp(params.cfg, training=False)
         print(self.params.checkpoint)
         network.load_state_dict(torch.load(self.params.checkpoint, map_location='cpu')['net'], strict=True)
         self.cfg = params.cfg
@@ -222,4 +222,4 @@ class ARTrack(BaseTracker):
 
 
 def get_tracker_class():
-    return ARTrack
+    return ARTrackpp

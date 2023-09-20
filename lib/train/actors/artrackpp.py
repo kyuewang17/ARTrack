@@ -157,8 +157,8 @@ def ciou(pred, target, eps=1e-7):
     cious = ious - (rho2 / c2 + v**2 / (1 - ious + v))
     return cious, ious
 
-class ARTrackActor(BaseActor):
-    """ Actor for training ARTrack models """
+class ARTrackppActor(BaseActor):
+    """ Actor for training ARTrackpp models """
 
     def __init__(self, net, objective, loss_weight, settings, bins, search_size, cfg=None):
         super().__init__(net, objective)

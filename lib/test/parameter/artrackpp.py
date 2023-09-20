@@ -9,7 +9,7 @@ def parameters(yaml_name: str):
     prj_dir = env_settings().prj_dir
     save_dir = env_settings().save_dir
     # update default config from yaml file
-    yaml_file = os.path.join(prj_dir, 'experiments/artrack/%s.yaml' % yaml_name)
+    yaml_file = os.path.join(prj_dir, 'experiments/artrackpp/%s.yaml' % yaml_name)
     update_config_from_file(yaml_file)
     params.cfg = cfg
     print("test config: ", cfg)
@@ -21,7 +21,7 @@ def parameters(yaml_name: str):
     params.search_size = cfg.TEST.SEARCH_SIZE
 
     # Network checkpoint path
-    params.checkpoint = os.path.join(save_dir, "checkpoints/train/artrack/%s/ARTrack_ep%04d.pth.tar" %
+    params.checkpoint = os.path.join(save_dir, "checkpoints/train/artrackpp/%s/ARTrack_ep%04d.pth.tar" %
                                      (yaml_name, cfg.TEST.EPOCH))
 
     # whether to save boxes from all queries
