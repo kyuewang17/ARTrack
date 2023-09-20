@@ -17,7 +17,7 @@ GitHub maintainer: [Yifan Bai](https://github.com/AlexDotHam)
 
 ## Highlight
 
-![](figure/overview.jpg)
+![](figure/artrack/overview.jpg)
 
 ### :bookmark:Brief Introduction
 
